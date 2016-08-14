@@ -1,0 +1,61 @@
+---
+layout: post
+title:  "Vim: word vs. WORD"
+date:   2016-08-14 12:00:00 -0400
+categories: vim
+---
+
+Vim defines **word** and **WORD** differently. For reference, here's what `:help word` tells us.
+
+{% highlight vim %}
+              *word*
+A word consists of a sequence of letters, digits and underscores, or a
+sequence of other non-blank characters, separated with white space (spaces,
+tabs, <EOL>).  This can be changed with the 'iskeyword' option.  An empty line
+is also considered to be a word.
+              *WORD*
+A WORD consists of a sequence of non-blank characters, separated with white
+space.  An empty line is also considered to be a WORD.
+{% endhighlight %}
+
+Let's start with the simpler of the 2 - a `WORD`. A `WORD` is any collection of non-blank characters. 
+
+{% highlight ruby %}
+party                 #=> 1 WORD
+Party!                #=> 1 WORD
+Party! Party!         #=> 2 WORDs
+Party!Party!Party!    #=> 1 WORD
+{% endhighlight %}
+
+Pressing `W` will move your cursor forward one `WORD`. If I am jumping ahead by word or WORD at any point, this is my preferred method. It's easier for me to process whitespaces than it is to process whitespaces and parse text at the same time. And if I'm bouncing forward a few words or deleting the next `x` WORDS (which can be done with `xdW`) it's likely because I've already counted the whitespaces.
+
+The definition of a `word` is a little different. As `:help` tells us, it is still a sequence of non-blank characters but in this case there are some specific characters that actually separate each `word`. There "other non-blank characters" that make up a word, and a collection set but `iskeyword` that separates them. You can see these keywords by opening up vim.
+
+
+{% highlight vim %}
+:set iskeyword?
+#=> iskeyword=@,48-57,_,192-255
+{% endhighlight %}
+
+Vim `:help` to the resuce. Details on the options formatting for `iskeyword=` are listed. Each option, separated by a `,`, translates as follows.
+{% highlight vim %}
+@                 #=> all characters isalpha() true
+isalpha() == true #=> a to z, A-Z, plus accented characters
+48-57             #=> ASCII codes 48-47, translates to number 0-9
+_                 #=> Underscore.
+192-255           #=> A unique collection of ASCII codes.
+{% endhighlight %}
+Everything else will separate a `word`. Building on our example from earlier:
+
+{% highlight ruby %}
+party                 #=> 1 WORD, 1 word
+Party!                #=> 1 WORD, 2 words
+Party! Party!         #=> 2 WORDs, 4 words
+Party!Party!Party!    #=> 1 WORD, 6 words
+Party, party, party!  #=> 3 WORDs, 6 words
+party.count           #=> 1 WORD, 3 words
+{% endhighlight %}
+
+You can navigate through each `word` with a `w`. Phrases like `party.count` are both very common and a big reason I don't like to bother with `w` as often. If I have a line like `party.count if Time.now > party.start_time` deleting a few words feels strange to me when I'm counting `.`. 
+
+Vim is all about manipulating and navigating text objects. Deep dives like this are a great way to help understand exactly what is happening each time you press a key in vim.
