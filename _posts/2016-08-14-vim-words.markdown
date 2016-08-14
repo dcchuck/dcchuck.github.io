@@ -29,7 +29,7 @@ Party!Party!Party!    #=> 1 WORD
 
 Pressing `W` will move your cursor forward one `WORD`. If I am jumping ahead by word or WORD at any point, this is my preferred method. It's easier for me to process whitespaces than it is to process whitespaces and parse text at the same time. And if I'm bouncing forward a few words or deleting the next `x` WORDS (which can be done with `xdW`) it's likely because I've already counted the whitespaces.
 
-The definition of a `word` is a little different. As `:help` tells us, it is still a sequence of non-blank characters but in this case there are some specific characters that actually separate each `word`. There "other non-blank characters" that make up a word, and a collection set but `iskeyword` that separates them. You can see these keywords by opening up vim.
+The definition of a `word` is a little different. As `:help` tells us, it is still a sequence of non-blank characters but in this case there are some specific characters that actually separate each `word`. The "other non-blank characters" that make up a word are all listed and set in `iskeyword`. You can see these keywords by opening up vim.
 
 
 {% highlight vim %}
@@ -39,10 +39,10 @@ The definition of a `word` is a little different. As `:help` tells us, it is sti
 
 Vim `:help` to the resuce. Details on the options formatting for `iskeyword=` are listed. Each option, separated by a `,`, translates as follows.
 {% highlight vim %}
-@                 #=> all characters isalpha() true
-isalpha() == true #=> a to z, A-Z, plus accented characters
+@                 #=> all characters where isalpha() true
+isalpha() == true #=> a-z, A-Z, plus accented characters
 48-57             #=> ASCII codes 48-47, translates to number 0-9
-_                 #=> Underscore.
+_                 #=> Underscore. To include the at symbol use @-@.
 192-255           #=> A unique collection of ASCII codes.
 {% endhighlight %}
 Everything else will separate a `word`. Building on our example from earlier:
