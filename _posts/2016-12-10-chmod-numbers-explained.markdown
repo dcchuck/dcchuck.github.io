@@ -22,4 +22,14 @@ Today marks my 3rd time in 2016 googling what number I need to send `chmod` in o
 
 There are 3 - one for the file owner, one for group permissions, and one for world permissions - just like you'd see when you `ls -al`.
 
-So what permissions are necessary for a private .ssh key? Only the file owner should have read access. Looking at our code we'll need `chmod 400`.
+```
+> ls -al chmod_examples
+total 0
+drwxr-xr-x   5 chuck  staff   170 Dec 10 17:55 .
+drwxr-xr-x+ 83 chuck  staff  2822 Dec 10 17:57 ..
+-r--------   1 chuck  staff     0 Dec 10 17:55 a_private_key.pem
+-r-xr-x---   1 chuck  staff     0 Dec 10 17:55 best_bash_script_ever.sh
+-rw-r--r--   1 chuck  staff     0 Dec 10 17:55 whatever
+```
+
+So what permissions are necessary for a private .ssh key? Only the file owner should have read access. Looking at our code we'll need `chmod 400`. After running chmod 400 the ssh key file permissions should match those in the printout above.
