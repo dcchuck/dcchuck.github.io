@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Exponential vs. Linear Time in Ruby"
-date:   2017-1-7 12:00:00 -0400
+date:   2017-1-5 12:00:00 -0400
 categories: algorithms, ruby
 ---
 
