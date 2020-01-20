@@ -11,9 +11,7 @@ categories: vim, vim-plugin, plugin
 
 If you've come this far on your VIM journey, I assume you have a means of installing plugins near and dear to your own heart so I'll just point you to the Github Repo.
 
-### Get Conqueror Of Completion
-
-[Conqueror of Completion](https://github.com/neoclide/coc.nvim)
+**[Conqueror of Completion Github](https://github.com/neoclide/coc.nvim)**
 
 "Hey! This thing is called `coc.nvim`! I'm not using NeoVim!" If you're not using nvim, you'll need to add a few lines to your `.vimrc`.
 ```
@@ -32,11 +30,11 @@ Check the version of Vim you are using - some of the floating popups are not ava
 
 ## Spell it wrong everywhere!
 
-`%s/wrongspeling/wrongspelling` (with the `gc` flag if you're not certain) is enough for me in correcting. A more common source of frustration for me is spelling something correct in 9 spaces and incorrectly in 1. Typically this will get caught by the language server before I waste a compilation but I'm telling you why I love something, not why I can live without it!
+`%s/userNmae/userName` (with the `gc` flag if you're not certain) is something I end up reaching for after writing `userNmae` everywhere instead of `userName`. A more common source of frustration for me is spelling something correct in 9 spaces and incorrectly in 1, something I don't do often given I can rely on the `<TAB>` press to select from the buffer & packages. Typically this will get caught by the language server before I waste a compilation but I'm telling you why I love something, not why I can live without it! It shines in other moments as well, like when you need to use two examples of a misspelling and dont' want to get it wrong (like in this blog post).
 
 ## API Discovery
 
-Ever made a super sweet module you knew others would love? Well, the entire API is just a `<TAB>` press away! Method signatures, return types, and everything your code has to offer is right at the user's fingertips. It's not about the 1st time they use it (we should all read the docs), it's about the 50th time. By then it's like you and others know your code has more to offer.
+Ever made a super sweet module you knew others would love? Well, the entire API is just a `<TAB>` press away! Method signatures, return types, and everything your code has to offer is right at the user's fingertips. It's not about the 1st time they use it (we should all read the docs), it's about the 50th time.
 
 # How It Works
 
