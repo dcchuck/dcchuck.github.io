@@ -26,22 +26,22 @@ For the curious, I'll point you to `:help` for each of these options. Just know 
 
 Check the version of Vim you are using - some of the floating popups are not available on early Vim 8 versions. I had only partial functionality until updating. The easiest way to see your vim version is right on the home screen. As I type this, I am on `8.1.2250`.
 
-# Why I Love Tab Completion
+## Why I Love Tab Completion
 
-## Spell it wrong everywhere!
+### Spell it wrong everywhere!
 
 `%s/userNmae/userName` (with the `gc` flag if you're not certain) is something I end up reaching for after writing `userNmae` everywhere instead of `userName`. A more common source of frustration for me is spelling something correct in 9 spaces and incorrectly in 1, something I don't do often given I can rely on the `<TAB>` press to select from the buffer & packages. Typically this will get caught by the language server before I waste a compilation but I'm telling you why I love something, not why I can live without it! It shines in other moments as well, like when you need to use two examples of a misspelling and dont' want to get it wrong (like in this blog post).
 
-## API Discovery
+### API Discovery
 
 Ever made a super sweet module you knew others would love? Well, the entire API is just a `<TAB>` press away! Method signatures, return types, and everything your code has to offer is right at the user's fingertips. It's not about the 1st time they use it (we should all read the docs), it's about the 50th time.
 
-# How It Works
+## How It Works
 
 I first brought in this package to give me the immediate feedback [VS Code](https://code.visualstudio.com/) provided as I was first diving into Typescript. Can VIM do the same? Why, yes! Underneath, `Coc.nvim` talks asynchronously to any language server you install. Your code is piped over to `tsserver`(Typescript) or `rls`(Rust) and the feedback you desire/fear is piped back to the buffer.
 
 In the early days of working with a new language, I find this quick and inexpensive feedback incredibly valuable.
 
-# Footnotes
+## Footnotes
 
 `1.` My original draft had a joke about the TradeMark, but Intellisense `is` actually a trademark of the Microsoft Corporation. I find this humurous, as I have seen the word used to describe features not built by Microsoft even though it is 'their' word.
