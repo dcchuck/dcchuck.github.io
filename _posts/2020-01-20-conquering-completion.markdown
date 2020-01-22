@@ -42,6 +42,6 @@ I first brought in this package to give me the immediate feedback [VS Code](http
 
 In the early days of working with a new language, I find this quick and inexpensive feedback incredibly valuable.
 
-## Footnotes
+#### Footnotes
 
 `1.` My original draft had a joke about the TradeMark, but Intellisense `is` actually a trademark of the Microsoft Corporation. I find this humurous, as I have seen the word used to describe features not built by Microsoft even though it is 'their' word.
