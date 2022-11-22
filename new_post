@@ -1,0 +1,41 @@
+#! /usr/bin/env python3
+
+"""
+Simple script to create a new post
+"""
+
+import re
+from datetime import datetime
+
+print("New Post Time! Alright!")
+title = input("Title? ")
+categories = input("Categories? (comma separated) ")
+
+print("Creating New Post - ", title)
+create_y_n = input("Confirm? [y/N] ")
+
+if create_y_n == "N":
+    print("Ok, canceling new post...")
+
+today = datetime.today()
+
+file_name_appropriate_title = re.sub(' ', '-', title.lower(), count=0) 
+today_0_pad_month = today.strftime("%M")
+
+post_name = f"{today.year}-{today.day}-{today_0_pad_month}-{file_name_appropriate_title}.markdown"
+
+new_post_path = f"./_posts/{post_name}"
+
+# Python doesn't give me the timezone for free here and as far as this blog is concerned I am in NY
+today_datestring = today.strftime("%Y-%m-%d %H:%M:%S -0400")
+
+with open(new_post_path, "a") as new_post:
+    new_post.write("---\n")
+    new_post.write("layout: post\n")
+    new_post.write(f"title: \"{title}\"\n")
+    new_post.write(f"date: {today_datestring}\n")
+    new_post.write(f"categories: {categories}\n")
+    new_post.write("---\n")
+    new_post.close()
+
+print("made new post with name ", post_name)
